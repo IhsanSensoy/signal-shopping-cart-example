@@ -30,7 +30,7 @@ import { CartItem } from '../../types/cart.type';
       <h2 class="text-2xl font-bold mb-4">Shopping Cart</h2>
 
       <!-- Loop through cart items -->
-      @for(item of cartService.items(); track item.id) {
+      @for(item of cartService.cartItems(); track item.id) {
       <div class="flex gap-4 mb-4 items-center">
         <img
           [src]="item.image"
@@ -81,7 +81,7 @@ import { CartItem } from '../../types/cart.type';
       }
 
       <!-- Cart Summary and Checkout -->
-      @if(cartService.items().length > 0) {
+      @if(cartService.cartItems().length > 0) {
       <div class="border-t pt-4 mt-4">
         <div class="flex justify-between text-xl font-bold">
           <span>Total:</span>

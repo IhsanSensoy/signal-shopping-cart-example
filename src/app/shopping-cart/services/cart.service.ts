@@ -7,15 +7,15 @@ import { CartItem } from '../types/cart.type';
 export class CartService {
   // --- State ---
   // Private signal holding the array of CartItems. Initialized empty.
-  private _items = signal<CartItem[]>([]);
+  private _cartItems = signal<CartItem[]>([]);
 
   // --- Selectors (Public Signals) ---
   // Read-only signal exposing the current cart items.
-  public items = this._items.asReadonly();
+  public cartItems = this._cartItems.asReadonly();
 
   // Computed signal that calculates the total price whenever items change (Read Only).
   public totalPrice = computed(() =>
-    this.items().reduce(
+    this.cartItems().reduce(
       (sum, item) => sum + Number(item.price) * item.quantity,
       0
     )
@@ -23,14 +23,14 @@ export class CartService {
 
   // Computed signal that calculates the total number of individual items.
   public itemCount = computed(() =>
-    this.items().reduce((sum, item) => sum + item.quantity, 0)
+    this.cartItems().reduce((sum, item) => sum + item.quantity, 0)
   );
 
   // --- Actions (Public Methods) ---
 
   /** Adds a product to the cart or increments quantity if it exists. */
   public addItem(productToAdd: Product) {
-    this._items.update((currentItems) => {
+    this._cartItems.update((currentItems) => {
       const existingItemIndex = currentItems.findIndex(
         (item) => item.id === productToAdd.id
       );
@@ -52,7 +52,7 @@ export class CartService {
 
   /** Removes an item entirely from the cart by its ID. */
   public removeItem(itemIdToRemove: string) {
-    this._items.update(
+    this._cartItems.update(
       (currentItems) =>
         currentItems.filter((item) => item.id !== itemIdToRemove) // Create new array excluding the item
     );
@@ -65,7 +65,7 @@ export class CartService {
       this.removeItem(itemId);
       return;
     }
-    this._items.update((currentItems) =>
+    this._cartItems.update((currentItems) =>
       currentItems.map(
         (item) =>
           item.id === itemId ? { ...item, quantity: newQuantity } : item // Update quantity immutably
@@ -75,6 +75,6 @@ export class CartService {
 
   /** Clears all items from the cart. */
   public clearCart() {
-    this._items.set([]); // Reset state to an empty array
+    this._cartItems.set([]); // Reset state to an empty array
   }
 }
