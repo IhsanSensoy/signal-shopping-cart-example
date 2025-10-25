@@ -49,7 +49,7 @@ import { CurrencyPipe } from '@angular/common';
             <div class="indicator">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
+                class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -63,7 +63,7 @@ import { CurrencyPipe } from '@angular/common';
               </svg>
               <!-- Badge shows item count from service, animated -->
               <span
-                class="badge badge-sm indicator-item"
+                class="badge bg-primary text-black badge-sm indicator-item"
                 [@countBump]="animationState()"
               >
                 {{ cartService.itemCount() }}
@@ -73,17 +73,17 @@ import { CurrencyPipe } from '@angular/common';
           <!-- Dropdown Content: Cart Summary -->
           <div
             tabindex="0"
-            class="card card-compact dropdown-content bg-base-200 z-1 mt-3 w-52 shadow"
+            class="card card-compact dropdown-content bg-base-200 z-1 mt-3 w-64 shadow"
           >
             <div class="card-body">
               <span class="text-lg font-bold"
                 >{{ cartService.itemCount() }} Items</span
               >
-              <span class="text-info"
+              <span class="text-info textarea-lg text-lg"
                 >Subtotal: {{ cartService.totalPrice() | currency }}</span
               >
               <div class="card-actions">
-                <button routerLink="/cart" class="btn btn-primary btn-block">
+                <button routerLink="/cart" class="btn btn-primary btn-block text-lg">
                   View cart
                 </button>
               </div>
