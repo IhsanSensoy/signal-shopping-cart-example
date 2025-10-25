@@ -40,7 +40,7 @@ import { CurrencyPipe } from '@angular/common';
     <!-- Navbar with Cart Dropdown -->
     <div class="navbar bg-base-200 shadow-sm sticky top-0 z-30">
       <div class="flex-1">
-        <a class="btn btn-ghost text-xl">Shopping cart example</a>
+        <a class="btn btn-ghost text-xl">Shopping cart signal example</a>
       </div>
       <div class="flex-none">
         <div class="dropdown dropdown-end z-20">

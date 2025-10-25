@@ -9,7 +9,7 @@ import { Product } from '@ngneat/falso';
   template: ` <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
     @for(product of products(); track product.id) {
     <!-- Use product.id for tracking -->
-    <div class="card bg-base-200 shadow-xl">
+    <div class="card bg-base-200 hover:bg-base-300 shadow-xl">
       <figure class="px-4 pt-4">
         <img
           [src]="product.image"

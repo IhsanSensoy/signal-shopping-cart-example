@@ -5,11 +5,11 @@ import { CartItem } from '../types/cart.type';
 
 @Injectable({ providedIn: 'root' }) // Global singleton service
 export class CartService {
-  // --- State ---
+  // --- State ----------------------------------------------------------------------------------------------------------
   // Private signal holding the array of CartItems. Initialized empty.
   private _cartItems = signal<CartItem[]>([]);
 
-  // --- Selectors (Public Signals) ---
+  // --- Selectors (Public Signals) ---------------------------------------------------------------------------------------
   // Read-only signal exposing the current cart items.
   public cartItems = this._cartItems.asReadonly();
 
@@ -26,7 +26,7 @@ export class CartService {
     this.cartItems().reduce((sum, item) => sum + item.quantity, 0)
   );
 
-  // --- Actions (Public Methods) ---
+  // --- Actions (Public Methods) ----------------------------------------------------------------------------------------------
 
   /** Adds a product to the cart or increments quantity if it exists. */
   public addItem(productToAdd: Product) {
