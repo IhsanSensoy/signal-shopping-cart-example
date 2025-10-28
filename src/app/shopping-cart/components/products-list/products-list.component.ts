@@ -4,7 +4,7 @@ import { Component, input, output } from '@angular/core';
 import { Product } from '@ngneat/falso';
 
 @Component({
-  selector: 'lib-products-list',
+  selector: 'products-list',
   imports: [CurrencyPipe],
   template: ` <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
     @for(product of products(); track product.id) {

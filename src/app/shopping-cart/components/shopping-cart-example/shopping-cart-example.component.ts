@@ -94,8 +94,8 @@ import { CurrencyPipe } from '@angular/common';
     </div>
     <!-- Main Content Area -->
     <section class="p-4">
-      <lib-search-box [(searchQuery)]="searchTerm" />
-      <lib-products-list
+      <search-box [(searchQuery)]="searchTerm" />
+      <products-list
         (addToCart)="addProductToCart($event)"
         [products]="filteredProducts()"
       />

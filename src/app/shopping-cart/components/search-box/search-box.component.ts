@@ -3,7 +3,7 @@ import { Component, model, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'lib-search-box',
+  selector: 'search-box',
   standalone: true,
   imports: [FormsModule],
   template: `
