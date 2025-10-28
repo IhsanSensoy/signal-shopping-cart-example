@@ -108,14 +108,19 @@ import { CurrencyPipe } from '@angular/common';
   ], // Minimal styles
 })
 export class ShoppingCartExampleComponent {
-  animationState = signal(0); // State for triggering animation
-  searchTerm = signal(''); // Holds the current search query
-  cartService = inject(CartService); // Inject the cart service
+  // State for triggering animation
+  animationState = signal(0);
+
+  // Holds the current search query
+  searchTerm = signal('');
+
+// Inject the cart service
+  cartService = inject(CartService);
 
   // Signal holding the full list of products (using falso for generation)
   products = signal<Product[]>(
-    randProduct({ length: 9 }).map((prod) => ({
-      ...prod,
+    randProduct({ length: 9 }).map((product) => ({
+      ...product,
       id: self.crypto.randomUUID(),
     })) // Ensure unique IDs
   );
