@@ -11,10 +11,10 @@ export class CartService {
 
   // --- Selectors (Public Signals) ---------------------------------------------------------------------------------------
   // Read-only signal exposing the current cart items.
-  public cartItems = this._cartItems.asReadonly();
+  public readonly cartItems = this._cartItems.asReadonly();
 
   // Computed signal that calculates the total price whenever items change (Read Only).
-  public totalPrice = computed(() =>
+  public readonly totalPrice = computed(() =>
     this.cartItems().reduce(
       (sum, item) => sum + Number(item.price) * item.quantity,
       0
@@ -22,7 +22,7 @@ export class CartService {
   );
 
   // Computed signal that calculates the total number of individual items.
-  public itemCount = computed(() =>
+  public readonly itemCount = computed(() =>
     this.cartItems().reduce((sum, item) => sum + item.quantity, 0)
   );
 
